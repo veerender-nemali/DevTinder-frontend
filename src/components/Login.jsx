@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/slices/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [userEmailId, setUserEmailId] = useState("");
-  const [userPassword, setUserPassword] = useState("");
+  const [userEmailId, setUserEmailId] = useState("luffy@gmail.com");
+  const [userPassword, setUserPassword] = useState("Luffy@123");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const submitHandler = async () => {
     try {
@@ -17,6 +22,8 @@ const Login = () => {
       );
 
       console.log(response);
+      dispatch(addUser(response?.data?.data));
+      navigate("/");
     } catch (error) {
       console.log(error.message);
     }
@@ -82,7 +89,7 @@ const Login = () => {
                 type="password"
                 required
                 placeholder="Password"
-                minlength="8"
+                minLength="8"
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
                 value={userPassword}
