@@ -10,6 +10,7 @@ const Login = () => {
   const [userPassword, setUserPassword] = useState("Luffy@123");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [inValidCredentials, setInValidCredentials] = useState("");
 
   const submitHandler = async () => {
     try {
@@ -22,11 +23,11 @@ const Login = () => {
         { withCredentials: true }
       );
 
-      console.log(response);
+      // setInValidCredentials("");
       dispatch(addUser(response?.data?.data));
       navigate("/");
     } catch (error) {
-      console.log(error.message);
+      setInValidCredentials(error?.response?.data || "Something went wrong!");
     }
   };
 
@@ -61,9 +62,9 @@ const Login = () => {
                 required
               />
             </label>
-            <div className="validator-hint hidden">
+            {/* <div className="validator-hint hidden">
               Enter valid email address
-            </div>
+            </div> */}
             <label className="input validator my-2">
               <svg
                 className="h-[1em] opacity-50"
@@ -97,13 +98,14 @@ const Login = () => {
                 onChange={(e) => setUserPassword(e.target.value)}
               />
             </label>
-            <p className="validator-hint hidden">
+            {/* <p className="validator-hint hidden">
               Must be more than 8 characters, including
               <br />
               At least one number <br />
               At least one lowercase letter <br />
               At least one uppercase letter
-            </p>
+            </p> */}
+            <p className="text-red-500"> {inValidCredentials}</p>
           </div>
           <div className="card-actions justify-end">
             <button className="btn btn-primary" onClick={submitHandler}>

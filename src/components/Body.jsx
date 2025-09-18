@@ -36,7 +36,7 @@ const Body = () => {
 
   return (
     <div>
-      <NavBar />
+      {user && <NavBar />}
       <Outlet />
     </div>
   );
