@@ -7,7 +7,7 @@ const UserCard = ({ user }) => {
         <div className="card bg-base-200 w-96 shadow-sm">
             <figure>
                 <img
-                    src={user.userImg || "https://imgs.search.brave.com/UAfQNeJyakRkWciqoAav4H0QUp33MOOspOQfF3FKM-A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/dmVjdG9yc3RvY2su/Y29tL2kvNTAwcC8y/Ni80MC9wcm9maWxl/LXBsYWNlaG9sZGVy/LWltYWdlLWdyYXkt/c2lsaG91ZXR0ZS12/ZWN0b3ItMjIxMjI2/NDAuanBn"}
+                    src={photoUrl || "https://imgs.search.brave.com/UAfQNeJyakRkWciqoAav4H0QUp33MOOspOQfF3FKM-A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/dmVjdG9yc3RvY2su/Y29tL2kvNTAwcC8y/Ni80MC9wcm9maWxl/LXBsYWNlaG9sZGVy/LWltYWdlLWdyYXkt/c2lsaG91ZXR0ZS12/ZWN0b3ItMjIxMjI2/NDAuanBn"}
                     alt="user image" />
             </figure>
             <div className="card-body">

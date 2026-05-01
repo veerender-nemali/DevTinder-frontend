@@ -19,7 +19,9 @@ const NavBar = () => {
   return (
     <div className="navbar bg-base-300 shadow-sm">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">DevTinder</a>
+        <Link to={"/"} className="btn btn-ghost text-xl">
+          DevTinder
+        </Link>
       </div>
       {user && (
         <div className="flex items-center">
@@ -33,8 +35,8 @@ const NavBar = () => {
               <div className="w-10 rounded-full">
                 <img
                   alt="user image"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                  // src={user.photoUrl}
+                  // src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  src={user.photoUrl}
                 />
               </div>
             </div>
