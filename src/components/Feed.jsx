@@ -15,6 +15,7 @@ const Feed = () => {
         withCredentials: true
       })
       const data = await response.data
+      console.log(data)
       dispatch(addFeed(data.data))
     } catch (error) {
       console.log(error)
@@ -23,9 +24,12 @@ const Feed = () => {
   }
 
   useEffect(() => {
-
     getFeed()
   }, [])
+
+  if (!feed) return
+
+  if (feed.length === 0) return <div className="flex justify-center my-10">No users found</div>;
 
   return feed && <div className="flex justify-center my-10">
     <UserCard user={feed[0]} />
