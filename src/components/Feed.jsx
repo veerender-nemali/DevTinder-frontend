@@ -15,7 +15,6 @@ const Feed = () => {
         withCredentials: true
       })
       const data = await response.data
-      console.log(data)
       dispatch(addFeed(data.data))
     } catch (error) {
       console.log(error)
