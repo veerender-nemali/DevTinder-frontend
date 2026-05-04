@@ -107,6 +107,7 @@ const Login = () => {
             </p> */}
             <p className="text-red-500"> {inValidCredentials}</p>
           </div>
+          <p>Don’t have an account? <button className="text-blue-500 cursor-pointer hover:underline" onClick={() => navigate("/signup")}>Sign up</button></p>
           <div className="card-actions justify-end">
             <button className="btn btn-primary" onClick={submitHandler}>
               Submit
